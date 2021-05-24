@@ -13,7 +13,6 @@ class Game:
         while not self.winner:
             print('Turn: {}'.format(
                 self.players[self.current_move % self.players_num].name))
-            print(self.board)
             self.print_board()
             move = self.make_move()
             self.winner = self.check_winner(*move)
