@@ -18,11 +18,10 @@ class Game:
             self.winner = self.check_winner(*move)
             self.current_move += 1
         print("Player {} won".format(
-                self.players[(self.current_move - 1)% self.players_num].name))
+            self.players[(self.current_move - 1) % self.players_num].name))
 
     def check_winner(self, row, column):
         ident = self.players[self.current_move % self.players_num].identifier
-        print(ident)
 
         def check_down():
             k = 0
@@ -51,12 +50,12 @@ class Game:
                 if self.board[row + i][column + i] != ident:
                     break
                 k += 1
-            for i in range(min(row, column)):
-                if self.board[row - i][column - i] != ident:
+            for i in range(min(row - 1, column - 1)):
+                if self.board[row - 1 - i][column - 1 - i] != ident:
                     break
                 k += 1
-            for i in range(min(row, self.weight - column)):
-                if self.board[row - i][column + i] != ident:
+            for i in range(min(row - 1, self.weight - 1 - column)):
+                if self.board[row - 1 - i][column - 1 + i] != ident:
                     break
                 l += 1
             for i in range(min(self.height - row, column)):
