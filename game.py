@@ -65,9 +65,9 @@ class Game:
 
             return max(k, l)
 
-        return (check_ver() == self.num_to_win or
-                check_hor() == self.num_to_win or
-                check_down() == self.num_to_win)
+        return (check_ver() >= self.num_to_win or
+                check_hor() >= self.num_to_win or
+                check_down() >= self.num_to_win)
 
     def make_move(self):
         print('Insert column number:')
